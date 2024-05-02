@@ -23,8 +23,7 @@ import LoadingIndicator from 'flarum/common/components/LoadingIndicator';
 import Placeholder from 'flarum/common/components/Placeholder';
 import TagProtectedDiscussionListItem from './components/TagProtectedDiscussionListItem';
 import ItemList from 'flarum/common/utils/ItemList';
-import tagLabel from '../common/helpers/tagLabel';
-
+import protectedTagLabel from '../common/helpers/protectedTagLabel';
 /*
  * Used for finding the correct location to replace the main DiscussionList with protection section
  */
@@ -126,7 +125,7 @@ function processDiscussionListItem(discussion, pageNum, pageSize, itemNum, param
  * @returns 
  */
 function processCloudView(cloud) {
-  return <div className="TagCloud">{cloud.map((tag) => [tagLabel(tag, { link: true }, tag.isProtectedTagDisplayedForTagsPage()), ' '])}</div>;
+  return <div className="TagCloud">{cloud.map((tag) => [protectedTagLabel(tag, { link: true }, tag.isProtectedTagDisplayedForTagsPage()), ' '])}</div>;
 }
 
 function extendDiscussionListView() {

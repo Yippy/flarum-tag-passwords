@@ -7,7 +7,7 @@ import Tooltip from 'flarum/common/components/Tooltip';
 import humanTime from 'flarum/common/helpers/humanTime';
 import avatar from 'flarum/common/helpers/avatar';
 import icon from 'flarum/common/helpers/icon';
-import tagsLabel from '../../common/helpers/tagsLabel';
+import protectedTagsLabel from '../../common/helpers/protectedTagsLabel';
 
 function getTooltipForPermission(discussion, title, tooltip, isPasswordProtected, isGroupProtected) {
   return <Tooltip text={tooltip} position="bottom">
@@ -17,9 +17,9 @@ function getTooltipForPermission(discussion, title, tooltip, isPasswordProtected
         {isGroupProtected? icon('fas fa-user-lock'): <></>}
         {' '+title}
       </h2>
-      {tagsLabel(discussion.tags(), {}, true, false)}
+      {protectedTagsLabel(discussion.tags(), {}, true, false)}
       <ul class="DiscussionListItem-info"><li class="item-tags">
-        {tagsLabel(discussion.tags(), {}, false)}
+        {protectedTagsLabel(discussion.tags(), {}, false)}
       </li></ul>
     </div>
   </Tooltip>
@@ -44,9 +44,6 @@ export default class TagProtectedDiscussionListItem extends DiscussionListItem {
         <div></div>
       );
     }
-  }
-  processCloudView(cloud) {
-    return <div className="TagCloud">{cloud.map((tag) => [tagLabel(tag, tag.isProtectedTagDisplayedForTagsPage(), { link: true }), ' '])}</div>;
   }
 
   contentView() {

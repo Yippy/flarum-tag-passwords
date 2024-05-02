@@ -5,7 +5,7 @@ import textContrastClass from 'flarum/common/helpers/textContrastClass';
 import tagIcon from 'flarum/tags/common/helpers/tagIcon';
 import icon from 'flarum/common/helpers/icon';
 
-export default function tagLabel(tag, attrs = {}, showProtectedDisplayed = true, isNonProtectedDisplayed = true) {
+export default function protectedTagLabel(tag, attrs = {}, showProtectedDisplayed = true, isNonProtectedDisplayed = true) {
   attrs.style = attrs.style || {};
   attrs.className = 'TagLabel ' + (attrs.className || '');
 
